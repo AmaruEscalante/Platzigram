@@ -8,13 +8,18 @@ from posts import views
 
 urlpatterns = [
 
+    path(route='posts/<int:pk>/',
+         view=views.DetailPostView.as_view(),
+         name='detail'),
+
     path(
         route='',
-         view=views.list_posts,
-         name='feed'),
+        view=views.ListPostView.as_view(),
+        name='feed'),
+
+
     path(
         route='posts/new/',
-         view=views.create_post,
-         name='create'),
-
+        view=views.CreatePostView.as_view(),
+        name='create'),
 ]
